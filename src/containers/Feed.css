@@ -1,0 +1,46 @@
+.Feed {
+    text-align: center;
+  }
+  
+  
+  .Feed-header {
+    background-color: #222;
+    height: 80px;
+    padding: 20px;
+    color: white;
+  }
+  
+  .Feed-title {
+    font-size: 1.5em;
+  }
+  
+  .Feed-intro {
+    font-size: large;
+  }
+  
+  .Feed ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width:100%;
+    text-align: center;
+  }
+  
+  .Feed li {
+    display: inline-block;
+    margin: 20px;
+  }
+  
+  .Feed li a{
+    text-decoration: none;
+    color: white;
+  }
+  
+  
+  .Feed li a:hover,
+  .Feed li a:active
+  { 
+    color: #7d94aa;
+  }
+  
+  
