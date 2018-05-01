@@ -1,38 +1,54 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import Post from '../../components/ToDo_Post/ToDo_Post';
 import './GetToDos.css';
 
 class GetToDos extends Component {
     state = {
-        todo: null,
-        done: null
+        todos: []
     }
 
     componentDidMount() {
         axios.get('/todos')
-
             .then((data) => {
-                
-                this.setState({
-                    todo: data.data.todos["1"].text,
-                    done: data.data.todos["1"].completed ? "completed" : "not completed"
+                const todo = data.data.todos
+                const updatedTodos = todo.map((item) => {
+                    return {
+                        ...item
+                    }
                 });
+                this.setState({ todos: updatedTodos });
+
             }).catch((e) => {
                 console.log(e);
             });
     }
 
+
     render() {
+        let posts = <p style={{ textAlign: 'center' }}>Something went wrong!</p>;
+        if (!this.state.error) {
+            posts = this.state.todos.map(post => {
+                console.log(post)
+                return <Post
+                    key={post._id} 
+                    title={post.text}
+                    completed = {post.completed}
+                />;
+            });
+        }
+
+
         return (
-
-            <div className="GetToDos">
-                <ul></ul>
-                <li>To-Dos |  Done?</li>
-                <li>{this.state.todo} , {this.state.done} </li>
-
-            </div>
+            <section className="GetToDos">
+                {posts}
+            </section>
         );
+
+
+
+
     }
 }
 

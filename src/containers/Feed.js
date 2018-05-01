@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 import './Feed.css';
 import GetUser from './GetUser/GetUser';
@@ -15,14 +15,16 @@ class Feed extends Component {
                     <h1 className="Feed-title">TO - DO - APP</h1>
                     <nav>
                         <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/Sign-Up">Sign Up</Link></li>
-                            <li><Link to={{
+                            <li><NavLink to="/" exact>Home</NavLink></li>
+                            <li><NavLink to="/Sign-Up">Sign Up</NavLink></li>
+                            <li><NavLink to={{
                                 pathname: '/Profile',
+                                //pathname: this.props.match.url + 'Settings'
+                                //to generata a relative path
                                 hash: '123',
                                 search: '?example123'
-                            }}>Profile</Link></li>
-                            <li><Link to="/ToDos">ToDos</Link></li>
+                            }}>Profile</NavLink></li>
+                            <li><NavLink to="/ToDos">ToDos</NavLink></li>
                         </ul>
                     </nav>
                 </header>

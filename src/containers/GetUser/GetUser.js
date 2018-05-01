@@ -9,6 +9,7 @@ class GetUser extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props);
         axios.get('/users/me')
 
             .then((data) => {
