@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 
 import './Feed.css';
 import GetUser from './GetUser/GetUser';
 import SignUp from './SignUp/SignUp';
 import GetToDos from './GetToDos/GetToDos';
+import FullPost from '../containers/FullPost/Fullpost';
 
 
 class Feed extends Component {
@@ -29,11 +30,14 @@ class Feed extends Component {
                     </nav>
                 </header>
 
-                <Route path="/" exact render={() => <h1>Home</h1>} />
-                <Route path="/Sign-Up" component={SignUp} />
-                <Route path="/Profile" exact component={GetUser} />
-                <Route path="/ToDos" exact component={GetToDos} />
 
+                <Switch>
+                    <Route path="/" exact render={() => <h1>Home</h1>} />
+                    <Route path="/Sign-Up" component={SignUp} />
+                    <Route path="/Profile" exact component={GetUser} />
+                    <Route path="/ToDos" exact component={GetToDos} />
+                    <Route path="/ToDos/:id"  component={FullPost} />
+                </Switch>
             </div>
         );
     }

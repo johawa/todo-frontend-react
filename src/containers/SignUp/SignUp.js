@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import Input from '../../components/UI/Input/input';
 import './SignUp.css';
 
 class SignUp extends Component {
@@ -36,8 +37,8 @@ class SignUp extends Component {
             <div className="SignUp">
                 <h1>Sign Up</h1>
                 <form onSubmit={this.GetInput}>
-                    <input type="text" name="email" placeholder="email"/>
-                    <input type="password" name="password" placeholder="password"/>
+                    <Input inputType="input" type="text" name="email" placeholder="email"/>
+                    <Input inputType="input" type="password" name="password" placeholder="password"/>
                     <button type="submit">Submit</button>
                     </form>
                 </div>
